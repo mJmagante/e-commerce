@@ -15,11 +15,13 @@ namespace API.Controllers
         {
             this.context = context;
         }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             return await context.Products.ToListAsync();
         }
+        
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
