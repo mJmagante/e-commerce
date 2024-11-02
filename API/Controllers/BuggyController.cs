@@ -10,21 +10,25 @@ public class BuggyController : BaseController
     {
         return Unauthorized();
     }
+
     [HttpGet("badrequest")]
     public ActionResult GetBadRequest()
     {
         return BadRequest("This was not a good request");
     }
+
     [HttpGet("notfound")]
     public ActionResult GetNotFound()
     {
         return NotFound();
     }
+
     [HttpGet("internalerror")]
     public ActionResult GetServerError()
     {
         throw new Exception("This is a internal error");
     }
+    
     [HttpPost("validationerror")]
     public ActionResult GetValidationError(CreateProductDto product)
     {
