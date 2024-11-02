@@ -1,5 +1,3 @@
-using System;
-
 namespace API.RequestHelper;
 
 public class Pagination<T>(int pageIndex, int pageSize, int count, IReadOnlyList<T> data)
