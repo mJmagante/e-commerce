@@ -1,3 +1,4 @@
+using API.Middleware;
 using Core.Interface;
 using Infrastructure.Data;
 using Infrastructure.Repository;
@@ -31,7 +32,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.UseMiddleware<ExceptionMiddleware>();
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200", "http://localhost:4200"));
 app.MapControllers();
 
 //Seed Data
